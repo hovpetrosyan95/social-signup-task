@@ -1,0 +1,33 @@
+$h: 30px;
+@mixin centerVertically {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+.search-bar {
+  position: relative;
+  width: 25%;
+  height: $h;
+  input {
+    height: 100%;
+    width: 100%;
+    padding-left: 25px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 6px;
+  }
+  svg {
+    position: absolute;
+    left: 5px;
+    @include centerVertically;
+  }
+  .search-btn {
+    position: absolute;
+    right: 5px;
+    height: 100%;
+    border-left: 1px solid #000000;
+    @include centerVertically;
+    line-height: $h;
+  }
+}
