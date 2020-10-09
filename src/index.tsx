@@ -1,14 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Switch,Route,BrowserRouter as Router } from "react-router-dom";
+import "./index.css";
+import ROUTES from "./containers/routes";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {
+      <Router>
+      <Switch>
+        {ROUTES.map((route, idx) => (
+          // eslint-disable-next-line  react/no-array-index-key
+          <Route
+            exact={route.exact}
+            key={idx}
+            path={`${route.path}`}
+            component={route.component}
+          />
+        ))}
+      </Switch>
+      </Router>
+    }
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
