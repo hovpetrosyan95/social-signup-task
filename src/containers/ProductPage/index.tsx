@@ -15,6 +15,7 @@ const ProductPage = () => {
       <div className="header">
         <div className="empty-div" />
         <SearchBar />
+        <Button text="SIGN UP" className="invert-colors"/>
       </div>
       <div className="content">
         <Slider />
