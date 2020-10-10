@@ -1,0 +1,28 @@
+@import "../../scss/variables";
+
+.default-btn {
+  position: relative;
+  height: 54px;
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 140%;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: $ui-black;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid black;
+  color: $ui-black;
+}
+
+.large-btn {
+  min-width: 70%;
+}
+
+.invert-colors {
+  background-color: $ui-black;
+  color: white;
+}
