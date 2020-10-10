@@ -3,3 +3,7 @@
     top: 50%;
     transform: translateY(-50%);
 }
+
+@mixin border-bottom{
+    border-bottom: 1px solid $ui-gray;
+}

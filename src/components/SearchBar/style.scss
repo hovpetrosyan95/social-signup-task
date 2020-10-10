@@ -1,14 +1,14 @@
 @import "../../scss/mixins";
-$h: 30px;
+$h: 35px;
 
 .search-bar {
   position: relative;
-  width: 25%;
+  width: 30%;
   height: $h;
   input {
     height: 100%;
     width: 100%;
-    padding-left: 25px;
+    padding: 15px 85px 15px 35px;
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 6px;
@@ -20,11 +20,13 @@ $h: 30px;
     position: absolute;
   }
   .search-btn {
-    right: 5px;
+    right: 0px;
     height: 100%;
+    padding: 0px 20px;
     border-left: 1px solid #000000;
     @include centerVertically;
     line-height: $h;
     position: absolute;
+    font-weight: 600;
   }
 }

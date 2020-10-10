@@ -1,0 +1,51 @@
+@import "../../scss/mixins";
+.seller-container{
+    .seller {
+        display: flex;
+        height: 100px;
+        div{
+            height: 30px;
+            line-height: 30px;
+        }
+        .second-row {
+          margin-left: 20px;
+          .name {
+            font-family: Inter;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 140%;
+            letter-spacing: -0.015em;
+          }
+          .rating-row {
+            font-size: 14px;
+          }
+        }
+      
+        .last-column {
+          float: right;
+          font-size: 12px;
+          text-align: right;
+          margin-left: auto;
+          color: #a0a0a0;
+          line-height: 140%;
+          .big-font {
+            font-size: 14px;
+            color: black;
+          }
+        }
+      }
+      button{
+          width: 35%;
+          height: 40px;
+      }
+      
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.margin-bottom{
+    margin-bottom: 10px;
+}
