@@ -5,9 +5,9 @@ import "./style.scss";
 const SearchBar = () => {
     return(
     <div className="search-bar">
-    <input placeholder="Search"></input>
+    <input placeholder="Search..."></input>
     <Search />
-    <div className="search-btn">Search</div>
+    <div className="search-btn">SEARCH</div>
     </div>
     ); 
 }

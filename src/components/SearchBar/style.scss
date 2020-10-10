@@ -1,9 +1,5 @@
+@import "../../scss/mixins";
 $h: 30px;
-@mixin centerVertically {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 
 .search-bar {
   position: relative;
@@ -18,16 +14,17 @@ $h: 30px;
     border-radius: 6px;
   }
   svg {
-    position: absolute;
     left: 5px;
     @include centerVertically;
+
+    position: absolute;
   }
   .search-btn {
-    position: absolute;
     right: 5px;
     height: 100%;
     border-left: 1px solid #000000;
     @include centerVertically;
     line-height: $h;
+    position: absolute;
   }
 }
