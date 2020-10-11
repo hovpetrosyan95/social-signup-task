@@ -1,15 +1,24 @@
 
 import { combineReducers } from 'redux';
 
-const gettingData = (state = {}, action: { type: string, payload: Object }) => {
+const data = (state = { isLoading: false, data: ""}, action: { type: string, payload: Object }) => {
   switch (action.type) {
     case 'GET_DATA':
-      // needs to be fixed
-      return state;
+      return {
+        ...state,
+        isLoading: true
+      };
+      case 'SET_DATA':
+      return {
+        ...state,
+        isLoading: false,
+        data: action.payload
+      };
     default:
       return state;
   }
 };
+
 
 const modal = (state = { isModalOpen: localStorage.getItem('user') ? false : true }, action: { type: string, payload: Object }) => {
   switch (action.type) {
@@ -36,8 +45,9 @@ const user = (state = {}, action: { type: string, payload: Object }) => {
       return state;
   }
 };
+
 export default combineReducers({
-  gettingData,
+  data,
   modal,
   user
 })

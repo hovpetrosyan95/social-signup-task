@@ -1,6 +1,11 @@
 export const getData = () => ({
-    type: 'GET_DATA'
-  });
+  type: 'GET_DATA'
+});
+
+export const setData = (data: Object) => ({
+  type: 'SET_DATA',
+  payload: data
+});
 
 export const changeModalStatus = () => ({
   type: 'CHANGE_MODAL_STATUS'

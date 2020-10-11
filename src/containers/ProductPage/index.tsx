@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import SearchBar from "../../components/SearchBar";
@@ -20,6 +20,7 @@ interface ProductPage {
   changeStatus: Function;
   registerUser: Function;
   logoutUser: Function;
+  fetchData: Function;
 }
 
 const ProductPage: React.FC<ProductPage> = ({
@@ -27,11 +28,19 @@ const ProductPage: React.FC<ProductPage> = ({
   changeStatus,
   registerUser,
   user,
-  logoutUser
+  logoutUser,
+  fetchData,
 }: ProductPage) => {
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className="product-page">
-      <Modal isModalOpen={isModalOpen} changeModalStatus={changeStatus} registerUser={registerUser}/>
+      <Modal
+        isModalOpen={isModalOpen}
+        changeModalStatus={changeStatus}
+        registerUser={registerUser}
+      />
       <div className="header">
         <div className="empty-div" />
         <SearchBar />
@@ -42,7 +51,7 @@ const ProductPage: React.FC<ProductPage> = ({
             onClick={changeStatus}
           />
         ) : (
-          <Profile user={user} logout={logoutUser}/>
+          <Profile user={user} logout={logoutUser} />
         )}
       </div>
       <div className="content">
@@ -109,15 +118,15 @@ const ProductPage: React.FC<ProductPage> = ({
 const mapStateToProps = (state: any) => ({
   data: state.data,
   isModalOpen: modalStatusSelector(state),
-  user: userSelector(state)
+  user: userSelector(state),
 });
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  getData: () => dispatch(getData()),
+  fetchData: () => dispatch(getData()),
   changeStatus: () => dispatch(changeModalStatus()),
   registerUser: (user: { name: string; details: Object }) =>
     dispatch(saveUser(user)),
-    logoutUser: () => dispatch(logout())
+  logoutUser: () => dispatch(logout()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);
