@@ -63,7 +63,6 @@ const ModalComp = ({
         <div className="description">
           By creating an account, you'll be able to go forward
         </div>
-        {alert(process.env.REACT_APP_GID)}
         <div className="sign-in-btns">
           <GoogleLogin
             clientId={`${process.env.REACT_APP_GID}`}
