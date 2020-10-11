@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import GoogleLogin from "react-google-login";
+import FacebookLogin from "react-facebook-login";
 
 import Close from "../../components/icons/Close";
 
@@ -27,15 +28,23 @@ interface ModalProps {
   registerUser: any;
 }
 
+const ModalComp = ({
+  isModalOpen,
+  changeModalStatus,
+  registerUser,
+}: ModalProps) => {
+  const responseGoogle = (response: any) => {
+    const name =
+      response.profileObj.familyName + " " + response.profileObj.givenName;
+    registerUser({ name, details: response });
+    changeModalStatus();
+  };
 
+  const responseFacebook = (response: any) => {
+    registerUser({ name: response.name, details: response });
+    changeModalStatus();
+  }
 
-const ModalComp = ({ isModalOpen, changeModalStatus, registerUser }: ModalProps) => {
-  const responseGoogle = (response: any
-    ) => {
-      const name = response.profileObj.familyName + " " + response.profileObj.givenName; 
-      registerUser({name, details: response })
-      changeModalStatus();
-    }
   return (
     <Modal
       isOpen={isModalOpen}
@@ -56,6 +65,15 @@ const ModalComp = ({ isModalOpen, changeModalStatus, registerUser }: ModalProps)
             buttonText="Sign up with Google"
             onSuccess={responseGoogle}
             cookiePolicy={"single_host_origin"}
+          />
+          <FacebookLogin
+            appId="402717964456552"
+            autoLoad={false}
+            fields="name,email,picture"
+            callback={responseFacebook}
+            icon="fa-facebook"
+            textButton="Sign up with Facebook"
+            cssClass="facebook-button"
           />
         </div>
       </div>

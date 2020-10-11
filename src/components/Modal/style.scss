@@ -13,6 +13,7 @@
     position: absolute;
     right: 20px;
     top: 20px;
+    cursor: pointer;
   }
   .description {
     font-family: Inter;
@@ -24,8 +25,26 @@
     text-align: center;
     letter-spacing: -0.015em;
   }
-  .sign-in-btns{
-      margin-top: 40px;
-      text-align: center;
+  .sign-in-btns {
+    margin-top: 40px;
+    text-align: center;
+    button {
+      width: 250px;
+      height: 50px;
+    }
+    .facebook-button {
+      margin-top: 20px;
+      width: 250x;
+      height: 50px;
+      border-radius: 4px;
+      background: #3b5998;
+      color: white;
+      border: 0px transparent;
+      font-weight: bold;
+      .fa {
+        position: relative;
+        left: -35px;
+      }
+    }
   }
 }
