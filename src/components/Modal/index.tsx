@@ -65,7 +65,7 @@ const ModalComp = ({
             buttonText="Sign up with Google"
             onSuccess={responseGoogle}
             cookiePolicy={"single_host_origin"}
-          />
+          /><br />
           <FacebookLogin
             appId="402717964456552"
             autoLoad={false}
