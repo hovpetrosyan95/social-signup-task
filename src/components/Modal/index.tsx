@@ -43,7 +43,11 @@ const ModalComp = ({
   const responseFacebook = (response: any) => {
     registerUser({ name: response.name, details: response });
     changeModalStatus();
-  }
+  };
+
+  const onGoogleFailure = (err) => {
+    console.log(err);
+  };
 
   return (
     <Modal
@@ -65,7 +69,9 @@ const ModalComp = ({
             buttonText="Sign up with Google"
             onSuccess={responseGoogle}
             cookiePolicy={"single_host_origin"}
-          /><br />
+            onFailure={onGoogleFailure}
+          />
+          <br />
           <FacebookLogin
             appId="402717964456552"
             autoLoad={false}
