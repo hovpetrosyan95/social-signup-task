@@ -1,32 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 
 import { Provider } from "react-redux";
 import "./index.css";
-import ROUTES from "./containers/routes";
+
 import store from './store';
 import * as serviceWorker from "./serviceWorker";
 
-
+import ProductPage from "./containers/ProductPage";
 
 ReactDOM.render(
   <Provider store={store}>
   <React.StrictMode>
     {
-      <Router>
-        <Switch>
-          {ROUTES.map((route, idx) => (
-            // eslint-disable-next-line  react/no-array-index-key
-            <Route
-              exact={route.exact}
-              key={idx}
-              path={`${route.path}`}
-              component={route.component}
-            />
-          ))}
-        </Switch>
-      </Router>
+      <ProductPage />
     }
   </React.StrictMode>
   </Provider>,
