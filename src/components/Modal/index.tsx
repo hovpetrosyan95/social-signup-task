@@ -64,6 +64,7 @@ const ModalComp = ({
           By creating an account, you'll be able to go forward
         </div>
         <div className="sign-in-btns">
+          {console.log(process.env.REACT_APP_GID,process.env.REACT_APP_FID)}
           <GoogleLogin
             clientId={`${process.env.REACT_APP_GID}`}
             buttonText="Sign up with Google"
