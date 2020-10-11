@@ -1,0 +1,11 @@
+.user {
+    cursor: pointer;
+  .logout {
+    margin-top: 5px;
+    text-align: center;
+    &:hover {
+      background-color: grey;
+      cursor: pointer;
+    }
+  }
+}

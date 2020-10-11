@@ -11,8 +11,8 @@ const Slider = () => {
     <div className="slider">
       <div className="slider-grid">
         <div className="photos">
-          {photos.map((photo) => (
-            <div className="photo">
+          {photos.map((photo, idx) => (
+            <div className="photo" key={idx}>
               <img src={photo} />
             </div>
           ))}

@@ -1,21 +1,49 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import SearchBar from "../../components/SearchBar";
 import Slider from "../../components/Slider";
 import Heart from "../../components/icons/Heart";
 import Button from "../../components/Button";
 import Seller from "../../components/Seller";
-import { getData } from "../../actions";
+import Modal from "../../components/Modal";
+import Profile from "../../components/Profile";
+import { getData, changeModalStatus, saveUser, logout } from "../../actions";
+import { modalStatusSelector } from "../../selectors/modalStatus";
+import { userSelector } from "../../selectors/user";
 
 import "./style.scss";
 
-const ProductPage = () => {
+interface ProductPage {
+  user: string;
+  isModalOpen: boolean;
+  changeStatus: Function;
+  registerUser: Function;
+  logoutUser: Function;
+}
+
+const ProductPage: React.FC<ProductPage> = ({
+  isModalOpen,
+  changeStatus,
+  registerUser,
+  user,
+  logoutUser
+}: ProductPage) => {
   return (
     <div className="product-page">
+      <Modal isModalOpen={isModalOpen} changeModalStatus={changeStatus} registerUser={registerUser}/>
       <div className="header">
         <div className="empty-div" />
         <SearchBar />
-        <Button text="SIGN UP" className="invert-colors"/>
+        {!user ? (
+          <Button
+            text="SIGN UP"
+            className="invert-colors"
+            onClick={changeStatus}
+          />
+        ) : (
+          <Profile user={user} logout={logoutUser}/>
+        )}
       </div>
       <div className="content">
         <Slider />
@@ -65,8 +93,8 @@ const ProductPage = () => {
             <div className="title">Description</div>
             <div>
               Condition 8/10. <br />
-              Delivery time is 7-10 days. <br /> 
-              Serious offers or inquires only please. <br /> 
+              Delivery time is 7-10 days. <br />
+              Serious offers or inquires only please. <br />
               Located in NY
             </div>
           </div>
@@ -80,10 +108,16 @@ const ProductPage = () => {
 // needs to be fixed
 const mapStateToProps = (state: any) => ({
   data: state.data,
+  isModalOpen: modalStatusSelector(state),
+  user: userSelector(state)
 });
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  getData: dispatch(getData()),
+  getData: () => dispatch(getData()),
+  changeStatus: () => dispatch(changeModalStatus()),
+  registerUser: (user: { name: string; details: Object }) =>
+    dispatch(saveUser(user)),
+    logoutUser: () => dispatch(logout())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);
