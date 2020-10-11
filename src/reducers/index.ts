@@ -1,14 +1,14 @@
 
 import { combineReducers } from 'redux';
 
-const data = (state = { isLoading: false, data: ""}, action: { type: string, payload: Object }) => {
+const data = (state = { isLoading: false, data: "" }, action: { type: string, payload: Object }) => {
   switch (action.type) {
     case 'GET_DATA':
       return {
         ...state,
         isLoading: true
       };
-      case 'SET_DATA':
+    case 'SET_DATA':
       return {
         ...state,
         isLoading: false,
@@ -40,7 +40,7 @@ const user = (state = {}, action: { type: string, payload: Object }) => {
         ...action.payload
       };
     case 'LOGOUT':
-      return{};
+      return {};
     default:
       return state;
   }
