@@ -63,9 +63,10 @@ const ModalComp = ({
         <div className="description">
           By creating an account, you'll be able to go forward
         </div>
+        {alert(process.env.REACT_APP_GID)}
         <div className="sign-in-btns">
           <GoogleLogin
-            clientId="985546593586-8t26h2r6v35ommijjc6t8bvm703catr8.apps.googleusercontent.com"
+            clientId={`${process.env.REACT_APP_GID}`}
             buttonText="Sign up with Google"
             onSuccess={responseGoogle}
             cookiePolicy={"single_host_origin"}
@@ -73,7 +74,7 @@ const ModalComp = ({
           />
           <br />
           <FacebookLogin
-            appId="402717964456552"
+            appId={`${process.env.REACT_APP_FID}`}
             autoLoad={false}
             fields="name,email,picture"
             callback={responseFacebook}
