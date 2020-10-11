@@ -114,7 +114,6 @@ const ProductPage: React.FC<ProductPage> = ({
   );
 };
 
-// needs to be fixed
 const mapStateToProps = (state: any) => ({
   data: state.data,
   isModalOpen: modalStatusSelector(state),
