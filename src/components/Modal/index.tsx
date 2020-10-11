@@ -45,7 +45,7 @@ const ModalComp = ({
     changeModalStatus();
   };
 
-  const onGoogleFailure = (err) => {
+  const onGoogleFailure = (err: any) => {
     console.log(err);
   };
 
